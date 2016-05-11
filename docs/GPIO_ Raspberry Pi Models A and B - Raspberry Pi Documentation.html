@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://www.raspberrypi.org/documentation/usage/gpio/ -->
+<html lang="en-GB"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>GPIO: Raspberry Pi Models A and B - Raspberry Pi Documentation</title>
+    <meta name="description" content="We&#39;ve provided some basic examples to help you discover possible uses for your Raspberry Pi and to get started with software available in Raspbian.">
+    <link rel="icon" type="image/png" href="https://www.raspberrypi.org/wp-content/themes/mind-control/images/favicon.png">
+    <link rel="publisher" href="https://plus.google.com/+RaspberryPi">
+    <!--[if lt IE 9]>
+    <script src="/wp-content/themes/mind-control/js/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/prism.css">
+    <link rel="stylesheet" href="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/style.css">
+    <link rel="stylesheet" href="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/mobile.css">
+    <link rel="stylesheet" href="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/css">
+    <link rel="stylesheet" href="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/css(1)">
+    <script type="text/javascript" async="" src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/ga.js"></script><script src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/jquery.min.js"></script>
+    <script src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/jquery.main.js"></script>
+    <script src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/prism.js"></script>
+
+    <script type="text/javascript">//<![CDATA[
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-46270871-1']);
+                        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+        //]]></script>
+
+    <link rel="canonical" href="https://www.raspberrypi.org/">
+    <link rel="shortlink" href="https://www.raspberrypi.org/">
+</head>
+
+<body class="documentation">
+    <div class="container">
+        <header id="header">
+            <nav id="nav">
+                <ul id="menu-nav-bar" class="menu"><li id="menu-item-6901" class="home mobile menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5372 current_page_item menu-item-6901"><a href="https://www.raspberrypi.org/">Home</a></li>
+                    <li id="menu-item-8279" class="close-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-8279"><a href="https://www.raspberrypi.org/documentation/usage/gpio/#">Close Menu</a></li>
+                    <li id="menu-item-6902" class="yellow menu-item menu-item-type-post_type menu-item-object-page menu-item-6902"><a href="https://www.raspberrypi.org/blog/">Blog</a></li>
+                    <li id="menu-item-6903" class="red menu-item menu-item-type-post_type menu-item-object-page menu-item-6903"><a href="https://www.raspberrypi.org/downloads/">Downloads</a></li>
+                    <li id="menu-item-6904" class="purple menu-item menu-item-type-post_type menu-item-object-page menu-item-6904"><a href="https://www.raspberrypi.org/community/">Community</a></li>
+                    <li id="menu-item-6905" class="green menu-item menu-item-type-post_type menu-item-object-page menu-item-6905"><a href="https://www.raspberrypi.org/help/">Help</a></li>
+                    <li id="menu-item-6907" class="pink menu-item menu-item-type-custom menu-item-object-custom menu-item-6907"><a href="https://www.raspberrypi.org/forums/">Forums</a></li>
+                    <li id="menu-item-18868" class="blue menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-18868"><a href="https://www.raspberrypi.org/education/">Education</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-6908" class="blue2 menu-item menu-item-type-post_type menu-item-object-page menu-item-6908"><a href="https://www.raspberrypi.org/resources/">Resources</a></li>
+                            <li id="menu-item-18869" class="blue3 menu-item menu-item-type-post_type menu-item-object-page menu-item-18869"><a href="https://www.raspberrypi.org/picademy/">Training</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-7165" class="menu mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-7165"><a href="https://www.raspberrypi.org/documentation/usage/gpio/#">Menu</a></li>
+                    <li id="menu-item-6912" class="search mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-6912"><a href="https://www.raspberrypi.org/documentation/usage/gpio/#">Search</a></li>
+                    <li id="menu-item-7154" class="shop menu-item menu-item-type-post_type menu-item-object-page menu-item-7154"><a href="https://www.raspberrypi.org/buy/">Buy</a></li>
+                </ul>
+            </nav>
+            <form class="search" action="https://www.raspberrypi.org/">
+                <input name="s" class="search" value="">
+                <input type="submit" class="submit" value="Search">
+            </form>
+        </header>
+
+        <div class="main">
+
+<nav class="breadcrumbs">
+    <a href="https://www.raspberrypi.org/documentation">documentation</a> &gt; <a href="https://www.raspberrypi.org/documentation/usage">usage</a> &gt; <a href="https://www.raspberrypi.org/documentation/usage/gpio">gpio</a></nav>
+
+<article class="entry-content">
+    <h1>GPIO: Raspberry Pi Models A and B</h1>
+<h3>An introduction to GPIO and physical computing on the Raspberry Pi</h3>
+<p>One powerful feature of the Raspberry Pi is the row of GPIO (general purpose input/output) pins along the edge of the board, next to the yellow video out socket.</p>
+<p><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/gpio-pins.jpg" alt="GPIO pins"></p>
+<p>These pins are a physical interface between the Pi and the outside world. At the simplest level, you can think of them as switches that you can turn on or off (input) or that the Pi can turn on or off (output). Seventeen of the 26 pins are GPIO pins; the others are power or ground pins.</p>
+<p><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/a-and-b-gpio-numbers.png" alt="GPIO layout"></p>
+<h2>What are they for? What can I do with them?</h2>
+<p>You can program the pins to interact in amazing ways with the real world. Inputs don't have to come from a physical switch; it could be input from a sensor or a signal from another computer or device, for example. The output can also do anything, from turning on an LED to sending a signal or data to another device. If the Raspberry Pi is on a network, you can control devices that are attached to it from anywhere** and those devices can send data back. Connectivity and control of physical devices over the internet is a powerful and exciting thing, and the Raspberry Pi is ideal for this. There are lots of brilliant examples of physical computing on <a href="http://www.raspberrypi.org/blog/">our blog</a>.</p>
+<p><strong>Note</strong>: Not <strong>literally</strong> anywhere, of course. You need things like access to the network, a network capable computing device, and electricity. Please do not write to us to point this out. :)</p>
+<h2>How the GPIO pins work</h2>
+<h3>Output</h3>
+<p><strong>WARNING</strong>: If you follow the instructions, then messing about with the GPIO is safe and fun. Randomly plugging wires and power sources into your Pi, however, may kill it. Bad things can also happen if you try to connect things to your Pi that use a lot of power; LEDs are fine, motors are not. If you are worried about this, then you might want to consider using a breakout board such as the <a href="http://pibrella.com/">Pibrella</a> until you are confident enough to use the GPIO directly.</p>
+<p>Ignoring the Pi for a moment, one of the simplest electrical circuits that you can build is a battery connected to a light source and a switch (the resistor is there to protect the LED):</p>
+<p><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/simple-circuit.png" alt="Simple circuit"></p>
+<p>When we use a GPIO pin as an output, the Raspberry Pi replaces <strong>both the switch and the battery</strong> in the above diagram. Each pin can turn on or off,or go HIGH or LOW in computing terms. When the pin is HIGH it outputs 3.3 volts (3v3); when the pin is LOW it is off.</p>
+<p>Here's the same circuit using the Raspberry Pi. The LED is connected to a GPIO pin (which can output +3v3) and a ground pin (which is 0v and acts like the negative terminal of the battery):</p>
+<p><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/gpio-led.png" alt="GPIO wth LED"></p>
+<p>The next step is to write a program to tell the pin to go HIGH or LOW. Here's an example using <a href="http://www.raspberrypi.org/learning/quick-reaction-game/">Python</a> (see Step 2), and here's how to do it in <a href="http://www.raspberrypi.org/learning/robot-antenna/">Scratch</a>.</p>
+<h3>Input</h3>
+<p>GPIO <strong>outputs</strong> are easy; they are on or off, HIGH or LOW, 3v3 or 0v. <strong>Inputs</strong> are a bit trickier because of the way that digital devices work. Although it might seem reasonable just to connect a button across an input pin and a ground pin, the Pi can get confused as to whether the button is on or off. It might work properly, it might not. It's a bit like floating about in deep space; without a reference it would be hard to tell if you were going up or down, or even what up or down meant!</p>
+<p>This is why you will see phrases like "pull up" and "pull down" in Raspberry Pi GPIO tutorials. It's a way of giving the input pin a reference so it knows for certain when an input is received.</p>
+<p>If you'd like to have a go at using the GPIO as an input then have a look at our <a href="https://www.raspberrypi.org/learning/burping-jelly-baby/">burping jelly baby</a> and <a href="http://www.raspberrypi.org/learning/quick-reaction-game/">quick reaction game</a> tutorials for Python, or a <a href="http://www.raspberrypi.org/learning/reaction-game/">reaction game</a> for Scratch.</p>
+<h2>The end of the guide. The start of something amazing</h2>
+<p>We hope that this has encouraged you to have a go at physical computing using the Pi's GPIO; it's really not as daunting as it looks. It all starts with a simple LED, but it can take you to incredible places. Do not underestimate the fun, creativity and sense of achievement you can get from a little computer and a bunch of pins. Have fun! And if you do make something cool please let us know. :)</p>
+<hr>
+<h2>Glossary</h2>
+<h3>GPIO</h3>
+<p>General purpose input/output; in this specific case the pins on the Raspberry Pi and what you can do with them. So called because you can use them for all sorts of purposes; most can be used as either inputs or outputs, depending on your program.</p>
+<h3>LED</h3>
+<p>Light-emitting diode- a small, low-power light source used widely in electronics. Ideal as an introduction to physical computing on the Pi.</p>
+<h3>Physical computing</h3>
+<p>Computing that involves tangible things connected to a computer, beyond standard input and output devices like keyboards and monitors. Think buttons, lights, robots, alarms, sensors, home automation, teddy bears called Babbage in near space and so on. We love physical computing because as well as being lots of fun, it's such a powerful teaching and learning tool and encourages creativity, problem solving, and collaboration. Computing <strong>beyond the screen</strong> engages children of all ages, and you can make very cool stuff!</p>
+<hr>
+<h2>Appendix 1. A note on pin numbering</h2>
+<p>When programming the GPIO pins there are two different ways to refer to them: GPIO numbering and physical numbering. </p>
+<h4>GPIO numbering</h4>
+<p>These are the GPIO pins as the computer sees them. The numbers don't make any sense to humans, they jump about all over the place, so there is no easy way to remember them. You will need a printed reference or a reference board that fits over the pins. </p>
+<h4>Physical numbering</h4>
+<p>The other way to refer to the pins is by simply counting across and down from pin 1 at the top left (nearest to the SD card). This is 'physical numbering' and it looks like this:</p>
+<p><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/a-and-b-physical-pin-numbers.png" alt="GPIO layout"></p>
+<h4>Which system should I use?</h4>
+<p>Beginners and young children may find the physical numbering system simpler -- you simply count the pins. You'll still need a diagram like the one above to know which are GPIO pins, which are ground and which are power though. </p>
+<p>Generally we recommend using the GPIO numbering. It's good practice and most resources use this system. Take your pick though -- as long as you use the same system within a program then all will be well. Note that pin numbering can also depend on what programming language you are using: Scratch GPIO, for example, uses physical pin numbers whereas in Python you can choose which to use.</p>
+<p>For more details on the advanced capabilities of the GPIO pins see gadgetoid's <a href="http://pinout.xyz/">interactive pinout diagram</a>.</p></article>
+
+                <footer class="licence">
+                    <aside class="octocat">
+                        <a href="https://github.com/raspberrypi/documentation/blob/master/usage/gpio/README.md"><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/octocat.jpg"></a>
+                    </aside>
+                    <aside class="links">
+                        <a href="https://github.com/raspberrypi/documentation/blob/master/usage/gpio/README.md" class="github">View/Edit this page on GitHub</a><br>
+                        <a href="https://www.raspberrypi.org/creative-commons/">Read our usage and contributions policy</a><br>
+                        <a href="https://www.raspberrypi.org/creative-commons/" class="cc"><img src="./GPIO_ Raspberry Pi Models A and B - Raspberry Pi Documentation_files/88x31.png" alt="Creative Commons Licence"></a>
+                    </aside>
+                </footer>
+
+                <div style="clear: both;"></div>
+
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <aside id="social-icons" class="footer">
+                <div class="footer-contents">
+                    <ul id="menu-social-icons" class="menu">
+                        <li id="menu-item-6924" class="twitter menu-item menu-item-type-custom menu-item-object-custom menu-item-6924"><a href="https://twitter.com/Raspberry_Pi">@Raspberry_Pi on Twitter</a></li>
+                        <li id="menu-item-6925" class="googleplus menu-item menu-item-type-custom menu-item-object-custom menu-item-6925"><a href="https://plus.google.com/+RaspberryPi">+RaspberryPi on Google+</a></li>
+                        <li id="menu-item-6926" class="facebook menu-item menu-item-type-custom menu-item-object-custom menu-item-6926"><a href="https://www.facebook.com/raspberrypi">Raspberry Pi on Facebook</a></li>
+                        <li id="menu-item-6927" class="github menu-item menu-item-type-custom menu-item-object-custom menu-item-6927"><a href="https://github.com/raspberrypi">Raspberry Pi on GitHub</a></li>
+                        <li id="menu-item-6928" class="githublearning menu-item menu-item-type-custom menu-item-object-custom menu-item-6928"><a href="https://github.com/raspberrypilearning">Raspberry Pi Learning on GitHub</a></li>
+                        <li id="menu-item-6929" class="youtube menu-item menu-item-type-custom menu-item-object-custom menu-item-6929"><a href="https://www.youtube.com/channel/UCFIjVWFZ__KhtTXHDJ7vgng">Raspberry Pi on YouTube</a></li>
+                        <li id="menu-item-6930" class="vimeo menu-item menu-item-type-custom menu-item-object-custom menu-item-6930"><a href="https://vimeo.com/raspberrypi">Raspberry Pi on Vimeo</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+        <footer id="footer">
+            <div class="footer-contents">
+                <ul id="menu-about-us" class="menu">
+                    <li id="menu-item-6888" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6888"><a href="https://www.raspberrypi.org/about/">About us</a></li>
+                    <li id="menu-item-6892" class="menu-item menu-item-type-post_type menu-item-object-help menu-item-6892"><a href="https://www.raspberrypi.org/help/faqs/">FAQs</a></li>
+                    <li id="menu-item-6893" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6893"><a href="https://www.raspberrypi.org/cookies/">Cookies</a></li>
+                    <li id="menu-item-6895" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6895"><a href="https://www.raspberrypi.org/creative-commons/">Creative Commons</a></li>
+                    <li id="menu-item-6896" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6896"><a href="https://www.raspberrypi.org/trademark-rules/">Trademark rules</a></li>
+                    <li id="menu-item-6898" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6898"><a href="https://www.raspberrypi.org/contact-us/">Contact us</a></li>
+                </ul>
+
+                <footer>
+                    Raspberry Pi Foundation<br>
+                    UK registered charity 1129409
+                </footer>
+            </div>
+        </footer>
+    </div>
+
+
+</body></html>
